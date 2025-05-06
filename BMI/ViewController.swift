@@ -33,5 +33,12 @@ class ViewController: UIViewController {
         self.weightlabel.text = String(format: "%.0f", sender.value)
     }
     
+    
+    @IBAction func calculatehesapla(_ sender: UIButton) {
+        let weight = weight.value
+        let height = height.value
+        let BMI = weight / (pow(height,2))
+        print(BMI)
+    }
 }
 

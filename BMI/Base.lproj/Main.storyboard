@@ -72,6 +72,9 @@
                                         <buttonConfiguration key="configuration" style="plain" title="Calculate" cornerStyle="fixed">
                                             <fontDescription key="titleFontDescription" name="HiraMinProN-W6" family="Hiragino Mincho ProN" pointSize="38"/>
                                         </buttonConfiguration>
+                                        <connections>
+                                            <action selector="calculatehesapla:" destination="BYZ-38-t0r" eventType="touchUpInside" id="lLK-Xp-blq"/>
+                                        </connections>
                                     </button>
                                 </subviews>
                                 <constraints>
