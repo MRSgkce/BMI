@@ -12,7 +12,7 @@ class ViewController: UIViewController {
     var BMI : Float?
     @IBOutlet weak var weightlabel: UILabel!
     @IBOutlet weak var heightlabel: UILabel!
-  
+    
     @IBOutlet weak var weight: UISlider!
     @IBOutlet weak var height: UISlider!
     
@@ -36,15 +36,15 @@ class ViewController: UIViewController {
         let weight = weight.value
         let height = height.value
         calculateBrains.calculate(height: height, weight: weight)
-       /* BMI = weight / (pow(height,2))
-        print(BMI ?? 0.0)*/
+        /* BMI = weight / (pow(height,2))
+         print(BMI ?? 0.0)*/
         
         self.performSegue(withIdentifier: "goTorslt", sender: nil)
         //bunu yapınca da diğer ekrana geçiliyor fakat veri aktarımı gibi yapmak istendiğinde
         //prepare kullanılması gerekiyor sanırım.
         /*let seconvc = SecondViewController()
-        seconvc.bmi = String(format: "%.1f", BMI)
-        self.present(seconvc, animated: true,completion: nil)//diğer ekrana geçiş buradan yapılıyor. O zaman segue veri aktarımı yapılırken mi kullanılıyordu? */
+         seconvc.bmi = String(format: "%.1f", BMI)
+         self.present(seconvc, animated: true,completion: nil)//diğer ekrana geçiş buradan yapılıyor. O zaman segue veri aktarımı yapılırken mi kullanılıyordu? */
         
         
     }
@@ -53,9 +53,10 @@ class ViewController: UIViewController {
     override func prepare(for segue: UIStoryboardSegue, sender: Any?) {
         if segue.identifier == "goTorslt"{
             let destination = segue.destination as! ResultViewController
-            
             //destination.BMIValue = String(format: "%.1f", BMI ?? "0.0")
             destination.BMIValue = calculateBrains.donustur()
+            destination.advice = calculateBrains.getAdvice()
+            destination.color = calculateBrains.color()
         }
     }
 }

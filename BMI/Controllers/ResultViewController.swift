@@ -8,17 +8,28 @@
 import UIKit
 
 class ResultViewController: UIViewController {
+    
     var BMIValue : String?
+    var advice : String?
+    var color : UIColor?
     @IBOutlet weak var BMI: UILabel!
+    
     override func viewDidLoad() {
         super.viewDidLoad()
         BMI.text = BMIValue
+        var label = UILabel()
+        label.text = advice
+        label.frame = CGRect(x: 100, y: 200, width: 200, height: 350)
+        view.addSubview(label)
+        
+        view.backgroundColor = color
 
     }
     
     @IBAction func RecountButton(_ sender: Any) {
         dismiss(animated: true,completion: nil)
     }
+    
     
     /*
     // MARK: - Navigation
